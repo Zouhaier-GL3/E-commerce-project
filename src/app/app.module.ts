@@ -7,12 +7,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { StudentsComponent } from './components/students/students.component';
 import { ProductComponent } from './components/product/product.component';
+import { CustomerComponent } from './components/customer/customer.component';
+import { ProviderComponent } from './components/provider/provider.component';
+import { CategoryComponent } from './components/category/category.component';
+import { DeliveryComponent } from './components/delivery/delivery.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentsComponent,
-    ProductComponent
+    ProductComponent,
+    CustomerComponent,
+    ProviderComponent,
+    CategoryComponent,
+    DeliveryComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
