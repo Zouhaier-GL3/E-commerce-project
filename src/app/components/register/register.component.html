@@ -1,0 +1,112 @@
+<div id="content" class="site-content" tabindex="-1">
+  <div class="container">
+
+
+      <div id="primary" class="content-area ">
+          <main id="main" class="site-main">
+              <article id="post-8" class="hentry">
+
+                  <div class="entry-content">
+                      <div class="woocommerce">
+                          <div class="customer-login-form">
+
+
+
+                                  <div class="col2-set" id="customer_login">
+
+
+
+                                      <div class="#">
+
+                                          <h2>Register</h2>
+
+                                          <form method="post" class="register" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                                              <div *ngIf="error" class="bg-danger">{{msgerror}}</div>
+                                              <p class="before-register-text">Create your very own account</p>
+                                              <div class="form-group">
+                                                  <label for="reg_email">Name<span class="required">*</span></label>
+                                                  <input type="text" placeholder="name" formControlName="name"
+                                                      class="form-control"
+                                                      [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                                                  <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                                      <div *ngIf="f.name.errors.required">Nom obligatoire.</div>
+                                                  </div>
+                                              </div>
+
+
+                                              <p class="form-row form-row-wide">
+                                                  <label for="reg_email">Email address<span
+                                                          class="required">*</span></label>
+
+                                                  <input type="email" placeholder="Email" formControlName="email"
+                                                      id="reg_email" ngModel email class="input-text form-control"
+                                                      [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+
+                                              </p>
+                                              <div class="form-row form-row-wide">
+                                                  <label for="reg_email">PAssword <span
+                                                          class="required">*</span></label>
+
+                                                  <input type="password" placeholder="Mot de passe"
+                                                      formControlName="password" id="password" class="input-text"
+                                                      [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                                  <div *ngIf="submitted && f.password.errors"
+                                                      class="invalid-feedback">
+                                                      <div *ngIf="f.password.errors.required">Mot de passe obligatoire
+                                                      </div>
+                                                      <div *ngIf="f.password.errors.minlength">Mot de passe doit être
+                                                          au
+                                                          moins de 6 caractères</div>
+                                                  </div>
+                                              </div>
+
+                                              <p class="form-row"><input type="submit" class="button" name="register"
+                                                      value="Register" /></p>
+                                                      <a routerLink="/" class="btn btn-link">Annuler</a>
+                                              <div class="register-benefits">
+                                                  <h3>Sign up today and you will be able to :</h3>
+                                                  <ul>
+                                                      <li>Speed your way through checkout</li>
+                                                      <li>Track your orders easily</li>
+                                                      <li>Keep a record of all your purchases</li>
+                                                  </ul>
+                                              </div>
+
+                                          </form>
+                                          <p class="card-text font-weight-light text-center">OU</p>
+                                          <form>
+                                            <button class="btn btn-block " id="facebookbtn"><i class="#"></i>
+                                              S'inscrire avec Facebook
+                                            </button>
+                                          </form>
+                                      </div><!-- .col-2 -->
+
+                                  </div><!-- .col2-set -->
+
+                          </div><!-- /.customer-login-form -->
+
+
+                      </div><!-- .woocommerce -->
+                  </div><!-- .entry-content -->
+
+              </article><!-- #post-## -->
+
+          </main><!-- #main -->
+      </div><!-- #primary -->
+
+  </div><!-- .col-full -->
+</div><!-- #content -->
+<style>
+  #customer_login::before {
+    border-right: 1px solid #ddd;
+    height: 0px;
+    position: absolute;
+    content: ' ';
+    right: 50%;
+    top: 0;
+}
+.container {
+    max-width: 1200px;
+    margin-left: -71px;
+}
+</style>

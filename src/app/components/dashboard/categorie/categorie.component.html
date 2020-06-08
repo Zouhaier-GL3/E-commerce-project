@@ -1,0 +1,84 @@
+<div class="container"><div class="container-fluid d-flex justify-content-center">
+    <div class="card text-left">
+        <div class="form-style-10">
+          <div class="row">   <h2>Liste de Categories : </h2> <button class="btn" (click)="ajoutercat()"> ajouter cat</button></div>
+
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table  ">
+        <thead>
+          <tr class="bg-grey">
+            <th>Nom </th>
+            <th>Sous Categorie</th>
+             <th>Date Création</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listCat">
+            <td>{{ item.name }}</td>
+            <td> <button class="btn"  data-toggle="modal" data-target="#subCatModal" (click)="getlistSub(item)">sous Cat</button></td>
+            <td>{{ item.telephone }}</td>
+            <td>{{ item.dataCre }}</td>
+            <td> <button class="btn"  data-toggle="modal" data-target="#deleteModal">supp</button></td>
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="Supprimer ADmin" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Supprimer Admin</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                     Voulez vous Supprimer {{item.name}}
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulé</button>
+                      <button type="button" class="btn btn-primary" (click)="suppAdmin(item)">Supprimer</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal fade" id="subCatModal" tabindex="-1" role="dialog" aria-labelledby="liste sub" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Liste Sous Cat</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table  ">
+                            <thead>
+                              <tr class="bg-grey">
+                                <th>Nom </th>
+                                  <th>Date Création</th>
+                                <th>Actions</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let item of listSub">
+                                <td>{{ item.name }}</td>
+                                 <td>{{ item.telephone }}</td>
+                                <td>{{ item.dataCre }}</td>
+                                <td> <button class="btn"  data-toggle="modal" data-target="#deleteModal">supp</button></td>
+            </tr>
+            </tbody>
+            </table>                    
+                   
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+                     </div>
+                  </div>
+                </div>
+              </div>
+          </tr>
+
+        </tbody>
+        </table>
+
+        </div>
+ 
+</div>
+</div>
